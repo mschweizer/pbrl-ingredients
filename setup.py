@@ -10,11 +10,7 @@ setup(name='pbrl-ingredients',
       packages=find_packages(),
       install_requires=[
           'sacred==0.8.4',
-          'gym==0.21',
-          'randomname==0.2.1',
-          'stable-baselines3==1.7.0',
-          'PyYAML==6.0',
-          'tensorboard==2.12.0'
+          'imitation==0.3.2',
       ],
       include_package_data=True,
       python_requires='>=3.7',
