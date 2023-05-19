@@ -30,17 +30,6 @@ pbrl_experiment = Experiment("pbrl_experiment",
                                           rl_ingredient])
 
 
-def apply_obs_wrappers(env: gym.Env, env_idx: int) -> gym.Env:
-    env = FullyObsWrapper(env)
-    env = CustomObsWrapper(env)
-    return env
-
-
-@common_ingredient.named_config
-def wrapped_environment():
-    post_wrappers = [apply_obs_wrappers]
-
-
 # noinspection PyUnusedLocal
 @pbrl_experiment.config
 def cfg():
@@ -71,7 +60,7 @@ def run(total_timesteps: int,
     custom_logger, log_dir = common.setup_logging()
     rng = common.make_rng()
 
-    with common.make_venv(post_wrappers=[apply_obs_wrappers]) as venv:
+    with common.make_venv() as venv:
 
         reward_net = reward.make_reward_net(venv)
         relabel_reward_fn = functools.partial(
