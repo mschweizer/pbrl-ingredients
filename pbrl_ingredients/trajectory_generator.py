@@ -11,7 +11,7 @@ def cfg():
 
 @trajectory_generator_ingredient.capture
 def create_trajectory_generator(rl_agent, reward_net, env, rng, custom_logger, exploration_fraction, kwargs=None):
-    preference_comparisons.AgentTrainer(
+    return preference_comparisons.AgentTrainer(
         algorithm=rl_agent,
         reward_fn=reward_net,
         venv=env,
