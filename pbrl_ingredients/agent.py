@@ -16,8 +16,7 @@ def cfg():
     trajectory_oversampling_factor = 1
     # fraction of total_comparisons that will be sampled right at the beginning
     initial_comparison_fraction = 0.1
-    # fraction of sampled trajectories that will include some random actions
-    allow_variable_horizon = True
+    allow_variable_horizon = False
 
 
 @pbrl_agent_ingredient.capture
